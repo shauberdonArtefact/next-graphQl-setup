@@ -1,0 +1,16 @@
+query getPostsList {
+  posts {
+    edges {
+      node {
+        title
+        slug
+      }
+    }
+  }
+}
+
+query getPostById($id: ID!) {
+  post(id: $id, idType: SLUG) {
+    content
+  }
+}

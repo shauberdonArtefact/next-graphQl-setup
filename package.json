@@ -6,17 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen": "graphql-codegen --require dotenv/config --config codegen.ts dotenv_config_path=./.env"
   },
   "dependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/client-preset": "^4.1.0",
+    "@graphql-typed-document-node/core": "^3.2.0",
     "@types/node": "20.4.8",
     "@types/react": "18.2.19",
     "@types/react-dom": "18.2.7",
+    "dotenv": "^16.3.1",
     "encoding": "^0.1.13",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
+    "graphql": "^16.7.1",
     "graphql-request": "^6.1.0",
+    "graphql-ws": "^5.14.0",
+    "install": "^0.13.0",
     "next": "13.4.13",
+    "npm": "^9.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.6"
