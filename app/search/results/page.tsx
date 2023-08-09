@@ -2,11 +2,11 @@ import { searchPosts } from "@/api/posts/posts.services";
 import { parseHtml } from "@/utils/parseHtml";
 
 const filteredPosts = async ({
-  params: { searchValue },
+  searchParams: { q },
 }: {
-  params: { searchValue: string };
+  searchParams: { q: string };
 }) => {
-  const posts = await searchPosts(searchValue);
+  const posts = await searchPosts(q);
 
   if (!posts?.length) return <p>Aucun résultats</p>;
 
