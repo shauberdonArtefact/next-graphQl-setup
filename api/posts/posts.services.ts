@@ -6,6 +6,7 @@ import {
 import { gqlClient } from "../graphql-client";
 
 export const getPosts = async () => {
+  gqlClient.requestConfig.cache = "no-cache";
   const data = await gqlClient.request(GetPostsListDocument);
   return data?.posts?.edges;
 };
