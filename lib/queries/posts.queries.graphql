@@ -14,3 +14,15 @@ query getPostById($id: ID!) {
     content
   }
 }
+
+query searchPosts($value: String) {
+  posts(where: { search: $value }) {
+    edges {
+      node {
+        slug
+        title
+        content
+      }
+    }
+  }
+}

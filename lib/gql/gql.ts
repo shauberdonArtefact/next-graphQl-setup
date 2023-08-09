@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "query getPostsList {\n  posts {\n    edges {\n      node {\n        title\n        slug\n      }\n    }\n  }\n}\n\nquery getPostById($id: ID!) {\n  post(id: $id, idType: SLUG) {\n    content\n  }\n}": types.GetPostsListDocument,
+    "query getPostsList {\n  posts {\n    edges {\n      node {\n        title\n        slug\n      }\n    }\n  }\n}\n\nquery getPostById($id: ID!) {\n  post(id: $id, idType: SLUG) {\n    content\n  }\n}\n\nquery searchPosts($value: String) {\n  posts(where: {search: $value}) {\n    edges {\n      node {\n        slug\n        title\n        content\n      }\n    }\n  }\n}": types.GetPostsListDocument,
 };
 
 /**
@@ -33,7 +33,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query getPostsList {\n  posts {\n    edges {\n      node {\n        title\n        slug\n      }\n    }\n  }\n}\n\nquery getPostById($id: ID!) {\n  post(id: $id, idType: SLUG) {\n    content\n  }\n}"): (typeof documents)["query getPostsList {\n  posts {\n    edges {\n      node {\n        title\n        slug\n      }\n    }\n  }\n}\n\nquery getPostById($id: ID!) {\n  post(id: $id, idType: SLUG) {\n    content\n  }\n}"];
+export function graphql(source: "query getPostsList {\n  posts {\n    edges {\n      node {\n        title\n        slug\n      }\n    }\n  }\n}\n\nquery getPostById($id: ID!) {\n  post(id: $id, idType: SLUG) {\n    content\n  }\n}\n\nquery searchPosts($value: String) {\n  posts(where: {search: $value}) {\n    edges {\n      node {\n        slug\n        title\n        content\n      }\n    }\n  }\n}"): (typeof documents)["query getPostsList {\n  posts {\n    edges {\n      node {\n        title\n        slug\n      }\n    }\n  }\n}\n\nquery getPostById($id: ID!) {\n  post(id: $id, idType: SLUG) {\n    content\n  }\n}\n\nquery searchPosts($value: String) {\n  posts(where: {search: $value}) {\n    edges {\n      node {\n        slug\n        title\n        content\n      }\n    }\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

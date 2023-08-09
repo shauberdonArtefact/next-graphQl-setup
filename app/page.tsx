@@ -1,11 +1,13 @@
 import { getPosts } from "@/api/posts/posts.services";
 import Link from "next/link";
+import Search from "./search/Search";
 
 export default async function Home() {
   const posts = await getPosts();
 
   return (
     <main>
+      <Search />
       <ul>
         {posts?.map((post) => (
           <li key={post.node.slug}>
