@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { FC, FormEvent, useState } from "react";
 
@@ -13,8 +12,8 @@ const Search: FC = () => {
   const handleSubmitSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const params = new URLSearchParams(searchParams.toString());
-    params.set("q", searchValue);
-
+    params.append("q", searchValue);
+    params.append("timestamp", Date.now().toString());
     router.push(pathname + "/results?" + params.toString());
   };
 
