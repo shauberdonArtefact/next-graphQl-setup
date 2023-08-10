@@ -1,11 +1,12 @@
 import { getPosts } from "@/api/posts/posts.services";
 import Link from "next/link";
 
-export const revalidate = 10;
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const posts = await getPosts();
-  console.table(posts?.[0].node);
+
   return (
     <main>
       <Link href="search">Rechercher un article</Link>
